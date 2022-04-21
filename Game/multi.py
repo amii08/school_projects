@@ -26,10 +26,11 @@ def multi_script():
             try:
                 x = int(x)
                 if x in user_numbers or x < 1 or x > 80:
+                    print("Wśród wprowadzonych liczb rozpoznano nieprawidłowe liczby. Zostały one usunięte.")
                     continue
+                user_numbers.append(x)
                 if len(user_numbers) > 10:
                     del user_numbers[10:]
-                user_numbers.append(x)
             except ValueError:
                 pass
 
