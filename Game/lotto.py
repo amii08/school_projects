@@ -27,10 +27,11 @@ def lotto_script():
         try:
             x = int(x)
             if x in user_numbers or x < 1 or x > 49:
+                print("Wśród wprowadzonych liczb rozpoznano nieprawidłowe liczby. Zostały one usunięte.")
                 continue
-            if len(user_numbers) > 6:
-                del user_numbers[6:1000]
             user_numbers.append(x)
+            if len(user_numbers) > 6:
+                del user_numbers[6:]
         except ValueError:
             pass
 
