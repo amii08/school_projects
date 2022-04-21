@@ -1,4 +1,3 @@
-from ast import Pass
 from random import *
 from random_id import * 
 from nickname import *
@@ -29,10 +28,11 @@ def euro_script():
         try:
             x = int(x)
             if x in user_numbers_1 or x < 1 or x > 50:
+                print("Wśród wprowadzonych liczb rozpoznano nieprawidłowe liczby. Zostały one usunięte.")
                 continue
+            user_numbers_1.append(x)
             if len(user_numbers_1) > 5:
                 del user_numbers_1[5:]
-            user_numbers_1.append(x)
         except ValueError:
             pass
     
@@ -60,6 +60,7 @@ def euro_script():
         try:
             x = int(x)
             if x in user_numbers_2 or x < 0 or x > 12:
+                print("Wśród wprowadzonych liczb rozpoznano nieprawidłowe liczby. Zostały one usunięte.")
                 continue
             if len(user_numbers_2) > 2:
                 del user_numbers_2[2:0]
