@@ -1,4 +1,3 @@
-from multiprocessing.sharedctypes import Value
 from random import *
 from random_id import * 
 from nickname import *
@@ -27,9 +26,11 @@ def lotto_script():
     for x in inp_list:
         try:
             x = int(x)
-            user_numbers.append(x)
+            if x in user_numbers or x < 1 or x > 49:
+                continue
             if len(user_numbers) > 6:
                 del user_numbers[6:1000]
+            user_numbers.append(x)
         except ValueError:
             pass
 
