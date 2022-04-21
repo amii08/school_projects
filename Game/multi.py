@@ -22,12 +22,14 @@ def multi_script():
         inp = input("Podaj 10 liczb przez space od 1 do 80: ")
         inp_list = inp.split()
         user_numbers = []
-        for x in inp_list:
+        for x in inp_list:           
             try:
                 x = int(x)
-                user_numbers.append(x)
+                if x in user_numbers or x < 1 or x > 80:
+                    continue
                 if len(user_numbers) > 10:
-                    del user_numbers[10:1000]
+                    del user_numbers[10:]
+                user_numbers.append(x)
             except ValueError:
                 pass
 
