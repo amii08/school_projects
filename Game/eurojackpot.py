@@ -1,3 +1,4 @@
+from ast import Pass
 from random import *
 from random_id import * 
 from nickname import *
@@ -20,13 +21,6 @@ def euro_script():
     euro_win_1.sort()
     euro_win_1_str = (' '.join(map(str,euro_win_1)))
     user_numbers_1 = []
-    #for e in range(0,5):
-    #    number_1 = int(input("Podaj liczbę: "))
-    #    while number_1 in user_numbers_1 or number_1 < 0 or number_1 > 50:
-    #        print("Błąd.\nPodaj liczbe od 1 do 50!")
-    #        number_1 = int(input("Podaj liczbę: "))
-    #    user_numbers_1.append(number_1)
-    user_numbers_1 = []
     for e in range(0,1):
         inp = input("Podaj 5 liczb przez space od 1 do 50: ")
         inp_list = inp.split()
@@ -34,9 +28,11 @@ def euro_script():
     for x in inp_list:
         try:
             x = int(x)
-            user_numbers_1.append(x)
+            if x in user_numbers_1 or x < 1 or x > 50:
+                continue
             if len(user_numbers_1) > 5:
-                del user_numbers_1[5:1000]
+                del user_numbers_1[5:]
+            user_numbers_1.append(x)
         except ValueError:
             pass
     
@@ -55,13 +51,6 @@ def euro_script():
     
     euro_win_2.sort()
     euro_win_2_str = (' '.join(map(str,euro_win_2)))
-    #user_numbers_2 = []
-    #for i in range(0,2):
-    #    number_2 = int(input("Podaj liczbę: "))
-    #    while (number_2 in user_numbers_2 or number_2 < 0 or number_2 > 12):
-    #        print("Błąd.\nPodaj liczbe od 1 do 12!")
-    #        number_2 = int(input("Podaj liczbę: "))
-    #    user_numbers_2.append(number_2)
     user_numbers_2 = []
     for e in range(0,1):
         inp = input("Podaj 2 liczby przez space od 1 do 12: ")
@@ -70,9 +59,11 @@ def euro_script():
     for x in inp_list:
         try:
             x = int(x)
-            user_numbers_2.append(x)
+            if x in user_numbers_2 or x < 0 or x > 12:
+                continue
             if len(user_numbers_2) > 2:
-                del user_numbers_2[2:1000]
+                del user_numbers_2[2:0]
+            user_numbers_2.append(x)
         except ValueError:
             pass
         
