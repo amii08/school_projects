@@ -1,0 +1,20 @@
+{%  extends 'forum/base_forum.html' %}
+
+{% block title %}
+    Usuń post
+{% endblock %}
+
+
+{% block content %}
+
+    <form action="{{ post.get_delete_url }}" method="post">
+        {% csrf_token %}
+
+        <h3>Napewno chcesz usunąc "{{ post.title }}" ogłoszenie?</h3>
+
+        <a href="{{ post.get_absolute_url }}">nie</a>
+        <button type="submit" name="button" class="btn btn-danger">usuń</button>
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'forum/base_forum.html' %}
+
+
+{% block title %}
+    medok
+{% endblock %}
+
+{% block content %}
+    <h1 class="mb-5">Ogłoszenia:</h1>
+    {% for post in posts %}
+        {% include 'forum/includes/post_card_template.html' %}
+    {% endfor %}
+{% endblock %}
